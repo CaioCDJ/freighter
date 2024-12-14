@@ -1,0 +1,33 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+    <Style Selector="Button.NavButton">
+        <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        <Setter Property="Foreground">White</Setter>
+        <Setter Property="Background">#101822</Setter>
+    </Style>
+    <Style Selector="Button.Container">
+        <Setter Property="Foreground" Value="DodgerBlue"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="CornerRadius" Value="10"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="BorderBrush" Value="DodgerBlue"></Setter>
+    </Style>
+    <Style Selector="Button.Link">
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="SkyBlue"></Setter>
+    </Style>
+    <Style Selector="Button.DeletarBtn">
+        <Setter Property="Foreground" Value="red"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="CornerRadius" Value="10"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="BorderBrush" Value="Red"></Setter>
+    </Style>
+</Styles>

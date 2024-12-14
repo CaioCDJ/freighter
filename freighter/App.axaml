@@ -2,9 +2,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="freighter.App"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
-
+    
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="Styles/DefaultStyles.axaml"></StyleInclude>
     </Application.Styles>
+    
+    <Application.Resources>
+        <SolidColorBrush x:Key="PrimaryBackground" Color="#0B0F1D">  </SolidColorBrush>
+        <SolidColorBrush x:Key="SecondaryBackgorund" Color="#101822"></SolidColorBrush>
+        <SolidColorBrush x:Key="PrimeryColor" Color="#4BB3EB"></SolidColorBrush>
+        <SolidColorBrush x:Key="SuccessColor" Color="#00A86D"></SolidColorBrush>
+        <SolidColorBrush x:Key="ErrorColor" Color="#FF5760"></SolidColorBrush>
+    </Application.Resources>
+    
 </Application>
