@@ -1,19 +1,24 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="freighter.App"
+             x:Class="Freighter.App"
+             xmlns:local="using:Freighter"
              RequestedThemeVariant="Default">
-    
-    <Application.Styles>
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>    
         <FluentTheme />
         <StyleInclude Source="Styles/DefaultStyles.axaml"></StyleInclude>
     </Application.Styles>
     
     <Application.Resources>
-        <SolidColorBrush x:Key="PrimaryBackground" Color="#0B0F1D">  </SolidColorBrush>
         <SolidColorBrush x:Key="SecondaryBackgorund" Color="#101822"></SolidColorBrush>
         <SolidColorBrush x:Key="PrimeryColor" Color="#4BB3EB"></SolidColorBrush>
         <SolidColorBrush x:Key="SuccessColor" Color="#00A86D"></SolidColorBrush>
         <SolidColorBrush x:Key="ErrorColor" Color="#FF5760"></SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryBackground" Color="#0B0F1D">  </SolidColorBrush>
     </Application.Resources>
-    
 </Application>

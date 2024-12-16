@@ -1,9 +1,10 @@
 ﻿using Avalonia;
 using System;
+using Avalonia.ReactiveUI;
 
-namespace freighter;
+namespace Freighter;
 
-class Program
+sealed class Program
 {
     // Initialization code. Don't use any Avalonia, third-party APIs or any
     // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
@@ -17,5 +18,6 @@ class Program
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .WithInterFont()
+            .UseReactiveUI()
             .LogToTrace();
 }

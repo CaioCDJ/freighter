@@ -30,4 +30,5 @@
         <Setter Property="VerticalAlignment" Value="Center"></Setter>
         <Setter Property="BorderBrush" Value="Red"></Setter>
     </Style>
+    <!-- Add Styles Here -->
 </Styles>
