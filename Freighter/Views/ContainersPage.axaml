@@ -3,41 +3,46 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:Freighter.ViewModels"
-             x:DataType="vm:ContainersPageModel"
+             x:DataType="vm:ContainersPageViewModel"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Freighter.Views.ContainersPage"
-             >
-	
-	<Border Grid.Column="1" Padding=" 50 20 50 10  " >
+             d:Background="{DynamicResource PrimaryBackground}"
+             x:Class="Freighter.Views.ContainersPage">
+
+	<Border Grid.Column="1" Padding=" 50 20 50 10  ">
 		<StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 			<TextBlock FontSize="30" FontWeight="SemiBold" Foreground="#4BB3EB"> Containers </TextBlock>
-                                
-				<Grid Grid.RowDefinitions="*" HorizontalAlignment="Stretch" >
-					<Grid Grid.ColumnDefinitions="100,*,*,*" Margin="0 30 0 0" HorizontalAlignment="Stretch">
-						<Grid Background="Aqua" Height="50"></Grid>
-							<Border Grid.Column="1" Padding="5">
-								<StackPanel  Orientation="Vertical" >
-									<TextBlock Foreground="white" Margin="10 0 0 0 ">Postgres</TextBlock>
-									<TextBlock Foreground="Gray" Margin="10 5 0 0 ">postgres</TextBlock>
-								</StackPanel>        
-                            </Border>
-                                                
-                            <Button Grid.Column="2" Classes="Link" >localhost:8080</Button>
-                                                        
-                            <StackPanel Grid.Column="3" Orientation="Horizontal" Spacing="10">
-                                <Button Classes="Container">
-                                    <Image Source="{SvgImage /Assets/Icons/Play.svg}"></Image>
-                                </Button>
-                                <Button Classes="Container">
-                                    <Image Source="{SvgImage /Assets/Icons/Stop.svg}"></Image>
-                                                </Button>
-                                                        <Button Classes="DeletarBtn">
-                                                                <Image Source="{SvgImage /Assets/Icons/Trash.svg}"></Image>
-                                                        </Button>
-                                                </StackPanel>
-                                        </Grid>        
-                                </Grid>
-                        </StackPanel>        
-                </Border>
-	
+
+			<StackPanel Orientation="Vertical" Spacing="5" HorizontalAlignment="Stretch">
+				<ListBox ItemsSource="{Binding containers}" Background="{DynamicResource PrimaryBackground}">
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Grid Grid.ColumnDefinitions="100,*,*,*" Margin="0 30 0 0" HorizontalAlignment="Stretch">
+								<Grid Background="Aqua" Height="50"></Grid>
+								<Border Grid.Column="1" Padding="5">
+									<StackPanel Orientation="Vertical">
+										<TextBlock Foreground="white" Margin="10 0 0 0 ">Postgres</TextBlock>
+										<TextBlock Foreground="Gray" Margin="10 5 0 0 ">98498234797</TextBlock>
+									</StackPanel>
+								</Border>
+
+								<Button Grid.Column="2" Classes="Link">localhost:8080</Button>
+
+								<StackPanel Grid.Column="3" Orientation="Horizontal" Spacing="10">
+									<Button Classes="Container">
+										<Image Source="{SvgImage /Assets/Icons/Play.svg}"></Image>
+									</Button>
+									<Button Classes="Container">
+										<Image Source="{SvgImage /Assets/Icons/Stop.svg}"></Image>
+									</Button>
+									<Button Classes="DeletarBtn">
+										<Image Source="{SvgImage /Assets/Icons/Trash.svg}"></Image>
+									</Button>
+								</StackPanel>
+							</Grid>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+			</StackPanel>
+		</StackPanel>
+	</Border>
 </UserControl>

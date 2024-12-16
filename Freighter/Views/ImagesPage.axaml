@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Freighter.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:ImagesPageViewModel"
+             x:Class="Freighter.Views.ImagesPage">
+	<Border Grid.Column="1" Padding=" 50 20 50 10  ">
+		<StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<TextBlock FontSize="30" FontWeight="SemiBold" Foreground="#4BB3EB">Images</TextBlock>
+			<Border Padding="0 20 0 0">
+				<StackPanel Orientation="Vertical" Spacing="6"  HorizontalAlignment="Stretch">
+						<Grid Grid.ColumnDefinitions="300,50,80,Auto,80,80" Margin="10 , 0 ,0,0">
+							<Label Grid.Column="0" Content="Postgres" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+							<Label Grid.Column="1" Content="Tag" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+							<Label Grid.Column="2" Content="Image ID" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+							<Label Grid.Column="3" Content="Qt. Containers" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+							<Label Grid.Column="4" Content="Created" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+							<Label Grid.Column="5" Content="Size" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+						</Grid>
+						<ListBox ItemsSource="{Binding images}" Background="{DynamicResource PrimaryBackground}">
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<Grid Grid.ColumnDefinitions="300,50,80,Auto,80,80">
+										<Label Grid.Column="0" Content="{Binding name}" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+										<Label Grid.Column="1" Content="Tag" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+										<Label Grid.Column="2" Content="Image ID" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+										<Label Grid.Column="3" Content="Qt. Containers" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+										<Label Grid.Column="4" Content="Created" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+										<Label Grid.Column="5" Content="Size" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+									</Grid>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+				</StackPanel>
+			</Border>
+
+		</StackPanel>
+	</Border>
+</UserControl>

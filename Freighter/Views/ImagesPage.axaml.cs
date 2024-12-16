@@ -7,12 +7,10 @@ using ReactiveUI;
 
 namespace Freighter.Views;
 
-public partial class ContainersPage : ReactiveUserControl<ContainersPageViewModel> {
-	public ContainersPage() {
-
+public partial class ImagesPage : ReactiveUserControl<ImagesPageViewModel> {
+	public ImagesPage() {
 		this.WhenActivated(dispoables => { });
 		AvaloniaXamlLoader.Load(this);
-		//	InitializeComponent();
 	}
 }
 

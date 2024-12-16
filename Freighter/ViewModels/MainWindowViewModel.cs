@@ -16,7 +16,7 @@ public partial class MainWindowViewModel : ReactiveObject, IScreen {
 	public ReactiveCommand<Unit, IRoutableViewModel> GoCotainersPage { get; }
 
 	// The command that navigates a user back.
-	public ReactiveCommand<Unit, IRoutableViewModel> GoBack => Router.NavigateBack;
+	public ReactiveCommand<Unit, IRoutableViewModel> GoImagesPage { get; }
 	
 	private ViewModelBase _currentPage;
 	public ViewModelBase CurrentPage {
@@ -26,9 +26,13 @@ public partial class MainWindowViewModel : ReactiveObject, IScreen {
 
 	public MainWindowViewModel() {
 		GoCotainersPage = ReactiveCommand.CreateFromObservable(
-			() => Router.Navigate.Execute(new ContainersPageModel(this) ) 
+			() => Router.Navigate.Execute(new ContainersPageViewModel(this) ) 
 		);
 		
-		Router.Navigate.Execute(new ContainersPageModel(this));
+		GoImagesPage = ReactiveCommand.CreateFromObservable(
+			() => Router.Navigate.Execute(new ImagesPageViewModel(this) ) 
+		);
+		
+		Router.Navigate.Execute(new ContainersPageViewModel(this));
 	}
 }
