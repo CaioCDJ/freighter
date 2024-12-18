@@ -20,8 +20,8 @@
 								<Grid Background="Aqua" Height="50"></Grid>
 								<Border Grid.Column="1" Padding="5">
 									<StackPanel Orientation="Vertical">
-										<TextBlock Foreground="white" Margin="10 0 0 0 ">Postgres</TextBlock>
-										<TextBlock Foreground="Gray" Margin="10 5 0 0 ">98498234797</TextBlock>
+										<Label Content="{Binding name}" Foreground="white" Margin="10 0 0 0 " ></Label>
+										<Label Content="{Binding id}" Foreground="Gray" Margin="10 5 0 0 "></Label>
 									</StackPanel>
 								</Border>
 

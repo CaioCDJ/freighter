@@ -10,32 +10,62 @@
 		<StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 			<TextBlock FontSize="30" FontWeight="SemiBold" Foreground="#4BB3EB">Images</TextBlock>
 			<Border Padding="0 20 0 0">
-				<StackPanel Orientation="Vertical" Spacing="6"  HorizontalAlignment="Stretch">
-						<Grid Grid.ColumnDefinitions="300,50,80,Auto,80,80" Margin="10 , 0 ,0,0">
-							<Label Grid.Column="0" Content="Postgres" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-							<Label Grid.Column="1" Content="Tag" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-							<Label Grid.Column="2" Content="Image ID" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-							<Label Grid.Column="3" Content="Qt. Containers" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-							<Label Grid.Column="4" Content="Created" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-							<Label Grid.Column="5" Content="Size" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-						</Grid>
-						<ListBox ItemsSource="{Binding images}" Background="{DynamicResource PrimaryBackground}">
-							<ListBox.ItemTemplate>
-								<DataTemplate>
-									<Grid Grid.ColumnDefinitions="300,50,80,Auto,80,80">
-										<Label Grid.Column="0" Content="{Binding name}" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-										<Label Grid.Column="1" Content="Tag" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-										<Label Grid.Column="2" Content="Image ID" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-										<Label Grid.Column="3" Content="Qt. Containers" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-										<Label Grid.Column="4" Content="Created" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-										<Label Grid.Column="5" Content="Size" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
-									</Grid>
-								</DataTemplate>
-							</ListBox.ItemTemplate>
-						</ListBox>
-				</StackPanel>
-			</Border>
+				<!--
+				<StackPanel Orientation="Vertical" Spacing="6" HorizontalAlignment="Stretch">
+					<Grid Grid.ColumnDefinitions="250,50,80,Auto,80,80" Margin="10 , 0 ,0,0">
+						<Label Grid.Column="0" Content="Postgres" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+						<Label Grid.Column="1" Content="Tag" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+						<Label Grid.Column="2" Content="Image ID" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+						<Label Grid.Column="3" Content="Qt. Containers" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+						<Label Grid.Column="4" Content="Created" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+						<Label Grid.Column="5" Content="Size" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+					</Grid>
 
+					<ListBox ItemsSource="{Binding images}" Background="{DynamicResource PrimaryBackground}">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<Grid Grid.ColumnDefinitions="250,50,80,Auto,80,80,auto" HorizontalAlignment="Stretch">
+									<Label Grid.Column="0" Content="{Binding name}" HorizontalAlignment="Stretch" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+									<Label Grid.Column="1" Content="{Binding repo_tag}"  HorizontalAlignment="Stretch" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+									<Label Grid.Column="2" Content="{Binding id}"  HorizontalAlignment="Stretch" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+									<Label Grid.Column="4" Content="{Binding created_at}"  HorizontalAlignment="Stretch" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+									<Label Grid.Column="3" Content="{Binding containers}"  HorizontalAlignment="Stretch" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+									<Label Grid.Column="5" Content="{Binding size}"  HorizontalAlignment="Stretch" FontWeight="SemiBold" FontSize="15" Foreground="#cfcfcf"></Label>
+									<Button Grid.Column="6" Classes="DeletarBtn" Command="{Binding delete }" CommandParameter="{Binding id}">
+										<Image Source="{SvgImage /Assets/Icons/Trash.svg}"></Image>
+									</Button>
+								</Grid>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+				</StackPanel>
+				-->
+				<DataGrid 
+					CanUserResizeColumns="True"
+					CanUserSortColumns="True"
+					HorizontalScrollBarVisibility="Disabled"
+					IsReadOnly="True"
+					GridLinesVisibility="None" 
+					HorizontalAlignment="Stretch" 
+					ItemsSource="{Binding images}">
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="Name" Width="*" Binding="{Binding name}" />
+						<DataGridTextColumn Header="Tag" MaxWidth="150" Binding="{Binding repo_tag}" />
+						<DataGridTextColumn Header="Id" MaxWidth="80" Binding="{Binding id}" />
+						<DataGridTextColumn Header="Qt. Containers" MaxWidth="80" Binding="{Binding containers}" />
+						<DataGridTextColumn Header="Created at" MaxWidth="150" Binding="{Binding created_at }" />
+						<DataGridTemplateColumn>
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<Button Command="{Binding delete  }" CommandParameter="{Binding id}">
+										<Image Source="{SvgImage /Assets/Icons/Trash.svg}"></Image>
+									</Button>
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+					</DataGrid.Columns>
+				</DataGrid>
+			</Border>
 		</StackPanel>
 	</Border>
 </UserControl>
