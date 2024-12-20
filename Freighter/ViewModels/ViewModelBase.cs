@@ -1,7 +1,8 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Freighter.ViewModels;
 
-public class ViewModelBase : ObservableObject
-{
+public class ViewModelBase : ObservableObject {
+
 }

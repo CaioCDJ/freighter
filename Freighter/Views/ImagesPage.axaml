@@ -41,7 +41,7 @@
 				</StackPanel>
 				-->
 				<DataGrid 
-					CanUserResizeColumns="True"
+					CanUserResizeColumns="False"
 					CanUserSortColumns="True"
 					HorizontalScrollBarVisibility="Disabled"
 					IsReadOnly="True"
@@ -50,8 +50,8 @@
 					ItemsSource="{Binding images}">
 					<DataGrid.Columns>
 						<DataGridTextColumn Header="Name" Width="*" Binding="{Binding name}" />
-						<DataGridTextColumn Header="Tag" MaxWidth="150" Binding="{Binding repo_tag}" />
-						<DataGridTextColumn Header="Id" MaxWidth="80" Binding="{Binding id}" />
+						<DataGridTextColumn Header="Tag" Width="*" Binding="{Binding repo_tag}" />
+						<DataGridTextColumn Header="Id" Width="*" Binding="{Binding id}" />
 						<DataGridTextColumn Header="Qt. Containers" MaxWidth="80" Binding="{Binding containers}" />
 						<DataGridTextColumn Header="Created at" MaxWidth="150" Binding="{Binding created_at }" />
 						<DataGridTemplateColumn>

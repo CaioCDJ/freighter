@@ -6,11 +6,9 @@ using ReactiveUI;
 
 namespace Freighter.Views;
 
-public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
-{
-    public MainWindow()
-    {
-	    this.WhenActivated(disposables => { });
-	    AvaloniaXamlLoader.Load(this);
-    }
+public partial class MainWindow : ReactiveWindow<MainWindowViewModel> {
+	public MainWindow() {
+		this.WhenActivated(disposables => { });
+		AvaloniaXamlLoader.Load(this);
+	}
 }

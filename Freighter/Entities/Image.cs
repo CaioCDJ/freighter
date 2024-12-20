@@ -10,8 +10,8 @@ public class Image {
 	public string name { get; init; }
 
 	public int containers { get; init; } = 0;
-	
+
 	public string created_at { get; init; }
-	
+
 	public ReactiveCommand<string, Unit> delete { get; init; }
 }
