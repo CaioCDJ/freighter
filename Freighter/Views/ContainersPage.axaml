@@ -28,13 +28,13 @@
 								<Button Grid.Column="2" Classes="Link">localhost:8080</Button>
 
 								<StackPanel Grid.Column="3" Orientation="Horizontal" Spacing="10">
-									<Button Classes="Container">
+									<Button Classes="Container" Command="{Binding start_command}" CommandParameter="{Binding id}" IsVisible="{Binding not_running}">
 										<Image Source="{SvgImage /Assets/Icons/Play.svg}"></Image>
 									</Button>
-									<Button Classes="Container">
+									<Button Classes="Container" Command="{Binding stop_command}" CommandParameter="{Binding id}" IsVisible="{Binding is_running}">
 										<Image Source="{SvgImage /Assets/Icons/Stop.svg}"></Image>
 									</Button>
-									<Button Classes="DeletarBtn">
+									<Button Classes="DeletarBtn" Command="{Binding delete_command }" CommandParameter="{Binding id}">
 										<Image Source="{SvgImage /Assets/Icons/Trash.svg}"></Image>
 									</Button>
 								</StackPanel>
