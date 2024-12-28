@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:vm="using:Freighter.ViewModels"
+             x:DataType="vm:VolumesPageViewModel"
+             x:Class="Freighter.Views.VolumesPage">
+
+	<Border Grid.Column="1" Padding=" 50 20 50 10  ">
+		<StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<TextBlock FontSize="30" FontWeight="SemiBold" Foreground="#4BB3EB">Volumes</TextBlock>
+			<Border Padding="0 20 0 0">
+				<DataGrid
+					CanUserResizeColumns="False"
+					IsReadOnly="True"
+					HorizontalAlignment="Stretch"
+					GridLinesVisibility="None"
+					ItemsSource="{Binding volumes}">
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="Name"  Width="*" Binding="{Binding name}" />
+						<DataGridTextColumn Header="created at" MaxWidth="" Binding="{Binding created_at}" />
+					</DataGrid.Columns>
+				</DataGrid>
+			</Border>
+		</StackPanel>
+	</Border>
+</UserControl>

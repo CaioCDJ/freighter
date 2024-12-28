@@ -17,8 +17,8 @@
 					<ListBox.ItemTemplate>
 						<DataTemplate>
 							<Grid Grid.ColumnDefinitions="100,*,*,*" Margin="0 30 0 0" HorizontalAlignment="Stretch">
-								<Grid Background="Aqua" Height="50"></Grid>
-								<Border Grid.Column="1" Padding="5">
+								<Grid Grid.Column="0" Background="Aqua" Height="50"></Grid>
+								<Border Grid.Column="1" Padding="5" HorizontalAlignment="Stretch">
 									<StackPanel Orientation="Vertical">
 										<Label Content="{Binding name}" Foreground="white" Margin="10 0 0 0 " ></Label>
 										<Label Content="{Binding id}" Foreground="Gray" Margin="10 5 0 0 "></Label>

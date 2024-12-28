@@ -33,16 +33,16 @@ public class ContainersPageViewModel : ReactiveObject, IRoutableViewModel {
 	private ReactiveCommand<Unit, Unit> refresh { get; set; }
 
 	private Func<Task> refreshAction { get; set; }
-	
+
 	public ContainersPageViewModel(IScreen hostScreen) {
 		HostScreen = hostScreen;
 
 		refreshAction = async () => await refresh_data();
-		
+
 		start_command = ReactiveCommand.CreateFromTask<string>(onStartContainer);
 		stop_command = ReactiveCommand.CreateFromTask<string>(onStopContainer);
 		delete_command = ReactiveCommand.CreateFromTask<string>(onDeleteContainer);
-		
+
 		containers = new ObservableCollection<Container>();
 
 		_docker_client = new DockerClientConfiguration(
@@ -91,8 +91,8 @@ public class ContainersPageViewModel : ReactiveObject, IRoutableViewModel {
 	private async Task onStartContainer(string id) {
 
 		var container = containers.SingleOrDefault(x => x.id == id);
-		
-		if (container is null) {}
+
+		if (container is null) { }
 
 		await _docker_client.Containers.StartContainerAsync(
 			id,
@@ -103,9 +103,9 @@ public class ContainersPageViewModel : ReactiveObject, IRoutableViewModel {
 
 	private async Task onStopContainer(string id) {
 		var container = containers.SingleOrDefault(x => x.id == id);
-		
-		if (container is null) {}
-		
+
+		if (container is null) { }
+
 		await _docker_client.Containers.StopContainerAsync(
 			id,
 			new ContainerStopParameters());
@@ -113,16 +113,16 @@ public class ContainersPageViewModel : ReactiveObject, IRoutableViewModel {
 	}
 
 	private async Task onDeleteContainer(string id) {
-		
+
 		var container = containers.SingleOrDefault(x => x.id == id);
-		
-		if (container is null) {}
+
+		if (container is null) { }
 
 		if (container.is_running) {
 			await onStopContainer(id);
 		}
 
-		await	_docker_client.Containers.RemoveContainerAsync(
+		await _docker_client.Containers.RemoveContainerAsync(
 			id, new ContainerRemoveParameters());
 
 		await refresh_data();

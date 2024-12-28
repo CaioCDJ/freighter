@@ -14,16 +14,16 @@ public class Container {
 	public IList<Port> ports { get; init; }
 	public string state { get; init; }
 	public string status_message { get; init; }
-	
+
 	public bool is_running { get; init; }
 
 	public bool not_running {
 		get => !is_running;
 		init => is_running = !value;
 	}
-	
-	public  ReactiveCommand<string,Unit> start_command{ get; init; }
-	public  ReactiveCommand<string,Unit> stop_command{ get; init; }
-	public  ReactiveCommand<string,Unit> delete_command{ get; init; }
-	
+
+	public ReactiveCommand<string, Unit> start_command { get; init; }
+	public ReactiveCommand<string, Unit> stop_command { get; init; }
+	public ReactiveCommand<string, Unit> delete_command { get; init; }
+
 }

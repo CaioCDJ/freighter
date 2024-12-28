@@ -21,10 +21,13 @@ public partial class MainWindowViewModel : ReactiveObject, IScreen {
 	// The command that navigates a user back.
 	public ReactiveCommand<Unit, IRoutableViewModel> GoImagesPage { get; }
 
+	public ReactiveCommand<Unit, IRoutableViewModel> GoVolumesPage { get; }
+
 	private ViewModelBase _currentPage;
 
 	private readonly ImagesPageViewModel _images_page;
 	private readonly ContainersPageViewModel _containers_page;
+	private readonly VolumesPageViewModel _volumes_page;
 
 	public ViewModelBase CurrentPage {
 		get { return _currentPage; }
@@ -32,9 +35,9 @@ public partial class MainWindowViewModel : ReactiveObject, IScreen {
 	}
 
 	public MainWindowViewModel() {
-
 		_images_page = new ImagesPageViewModel(this);
 		_containers_page = new ContainersPageViewModel(this);
+		_volumes_page = new VolumesPageViewModel(this);
 
 		GoContainersPage = ReactiveCommand.CreateFromObservable(
 			() => refresh_page(_containers_page)
@@ -42,6 +45,10 @@ public partial class MainWindowViewModel : ReactiveObject, IScreen {
 
 		GoImagesPage = ReactiveCommand.CreateFromObservable(
 			() => refresh_page(_images_page)
+		);
+
+		GoVolumesPage = ReactiveCommand.CreateFromObservable(
+			() => refresh_page(_volumes_page)
 			);
 
 		Router.Navigate.Execute(_containers_page);
@@ -49,7 +56,6 @@ public partial class MainWindowViewModel : ReactiveObject, IScreen {
 
 	private IObservable<IRoutableViewModel> refresh_page(IRoutableViewModel page) {
 		return Observable.FromAsync(async () => {
-
 			await Router.Navigate.Execute(page);
 
 			if (page is ContainersPageViewModel containers_page) {
@@ -60,8 +66,11 @@ public partial class MainWindowViewModel : ReactiveObject, IScreen {
 				await images_page.refresh_data();
 			}
 
+			if (page is VolumesPageViewModel volumes_page) {
+				await volumes_page.refresh_data();
+			}
+
 			return page;
 		});
 	}
-
 }
