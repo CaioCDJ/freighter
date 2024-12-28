@@ -16,7 +16,7 @@ Run
 ## Stack
 - [Avalonia](https://avaloniaui.net/)
 - [Docker.Dotnet](https://github.com/dotnet/Docker.DotNet/)
-- [Dotnet 9]()
+- [Dotnet 9](https://dotnet.microsoft.com)
 
 ## Acknowledgements
 - [Heroicons](https://heroicons.com/)

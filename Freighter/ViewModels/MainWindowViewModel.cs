@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Freighter.Views;
 using Avalonia.Reactive;
 using ExCSS;
+using Freighter.Services;
 using ReactiveUI;
 
 namespace Freighter.ViewModels;
@@ -28,6 +29,7 @@ public partial class MainWindowViewModel : ReactiveObject, IScreen {
 	private readonly ImagesPageViewModel _images_page;
 	private readonly ContainersPageViewModel _containers_page;
 	private readonly VolumesPageViewModel _volumes_page;
+	private readonly DockerService _docker_service;
 
 	public ViewModelBase CurrentPage {
 		get { return _currentPage; }
@@ -35,9 +37,10 @@ public partial class MainWindowViewModel : ReactiveObject, IScreen {
 	}
 
 	public MainWindowViewModel() {
-		_images_page = new ImagesPageViewModel(this);
-		_containers_page = new ContainersPageViewModel(this);
-		_volumes_page = new VolumesPageViewModel(this);
+		_docker_service = new DockerService();
+		_images_page = new ImagesPageViewModel(this, _docker_service);
+		_containers_page = new ContainersPageViewModel(this, _docker_service);
+		_volumes_page = new VolumesPageViewModel(this, _docker_service);
 
 		GoContainersPage = ReactiveCommand.CreateFromObservable(
 			() => refresh_page(_containers_page)
@@ -51,7 +54,7 @@ public partial class MainWindowViewModel : ReactiveObject, IScreen {
 			() => refresh_page(_volumes_page)
 			);
 
-		Router.Navigate.Execute(_containers_page);
+		refresh_page(_containers_page).Wait();
 	}
 
 	private IObservable<IRoutableViewModel> refresh_page(IRoutableViewModel page) {

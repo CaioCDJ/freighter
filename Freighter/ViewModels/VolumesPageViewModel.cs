@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Docker.DotNet;
 using Freighter.Entities;
+using Freighter.Services;
 using ReactiveUI;
 
 namespace Freighter.ViewModels;
@@ -15,23 +16,22 @@ public class VolumesPageViewModel : ReactiveObject, IRoutableViewModel {
 
 	private readonly DockerClient _docker_client;
 
+	private readonly DockerService _docker_service;
+
 	public ObservableCollection<Volume> volumes { get; set; }
 
-	public VolumesPageViewModel(IScreen hostScreen) {
+	public VolumesPageViewModel(IScreen hostScreen, DockerService dockerService) {
 		HostScreen = hostScreen;
-		_docker_client = new DockerClientConfiguration(
-				new Uri("unix:///var/run/docker.sock"))
-			.CreateClient();
+		_docker_service = dockerService;
 
 		volumes = new ObservableCollection<Volume>();
-
 	}
 
 	public async Task refresh_data() {
 		volumes.Clear();
 
-		var docker_volumes = await _docker_client.Volumes.ListAsync();
-
+		var docker_volumes = await _docker_service.list_volumes();
+		
 		foreach (var item in docker_volumes.Volumes) {
 			volumes.Add(new Volume() {
 				name = item.Name,
@@ -39,7 +39,6 @@ public class VolumesPageViewModel : ReactiveObject, IRoutableViewModel {
 				disk_usage = null,
 				created_at = item.CreatedAt
 			});
-			Console.WriteLine(item.Name);
 		}
 	}
 }
