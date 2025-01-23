@@ -11,7 +11,6 @@ public partial class VolumesPage : ReactiveUserControl<VolumesPageViewModel> {
 	public VolumesPage() {
 		this.WhenActivated(action => { });
 		AvaloniaXamlLoader.Load(this);
-		//		InitializeComponent();
 	}
 }
 

@@ -13,5 +13,6 @@ public class Image {
 
 	public string created_at { get; init; }
 
+	public ReactiveCommand<string, Unit> copy { get; init; }
 	public ReactiveCommand<string, Unit> delete { get; init; }
 }

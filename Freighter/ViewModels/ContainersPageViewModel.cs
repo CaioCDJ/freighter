@@ -36,7 +36,6 @@ public class ContainersPageViewModel : ReactiveObject, IRoutableViewModel {
 		HostScreen = hostScreen;
 		_docker_service = dockerService;
 
-
 		start_command = ReactiveCommand.CreateFromTask<string>(onStartContainer);
 		stop_command = ReactiveCommand.CreateFromTask<string>(onStopContainer);
 		delete_command = ReactiveCommand.CreateFromTask<string>(onDeleteContainer);
@@ -79,7 +78,9 @@ public class ContainersPageViewModel : ReactiveObject, IRoutableViewModel {
 		var container = containers.SingleOrDefault(x => x.id == id);
 
 		if (container is null) { }
-
+		
+		
+		
 		await _docker_service.stop_container(id);
 		await refresh_data();
 	}

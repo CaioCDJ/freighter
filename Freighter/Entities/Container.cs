@@ -26,4 +26,5 @@ public class Container {
 	public ReactiveCommand<string, Unit> stop_command { get; init; }
 	public ReactiveCommand<string, Unit> delete_command { get; init; }
 
+	public  ReactiveCommand<string, Unit> open_browser { get; init; }
 }
