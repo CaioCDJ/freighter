@@ -6,59 +6,72 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="vm:ImagesPageViewModel"
              x:Class="Freighter.Views.ImagesPage">
-	
-	<Border Grid.Column="1" Padding=" 50 20 50 10  ">
-		<StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-			<TextBlock FontSize="30" FontWeight="SemiBold" Foreground="#4BB3EB">Images</TextBlock>
-			<Border Padding="0 20 0 0">
 
-				<DataGrid
-					CanUserResizeColumns="False"
-					CanUserSortColumns="True"
-					HorizontalScrollBarVisibility="Disabled"
-					IsReadOnly="True"
-					GridLinesVisibility="None"
-					HorizontalAlignment="Stretch"
-					ItemsSource="{Binding images}">
-					<DataGrid.Columns>
-						<DataGridCheckBoxColumn/>
-						<DataGridTemplateColumn>
-							<DataGridTemplateColumn.Header>
-								<TextBlock>Image</TextBlock>
-							</DataGridTemplateColumn.Header>
-							<DataGridTemplateColumn.CellTemplate>
-								<DataTemplate>
-									<StackPanel Spacing="3" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
-										<TextBlock Text="{Binding name}" FontWeight="SemiBold" FontSize="15" />
-										<StackPanel Orientation="Horizontal" Spacing="2" VerticalAlignment="Center" HorizontalAlignment="Left">
-											<Button Grid.Column="0" Background="Transparent"
-											        Command="{Binding copy}"
-											        CommandParameter="{Binding id}">
-												<Image Height="10" Source="{SvgImage /Assets/Icons/copy.svg}"></Image>
-											</Button>
-											<TextBlock MaxWidth="250" Margin="5,0,0,0" Grid.Column="1" Foreground="#a2a2a2" Text="{Binding id}"> </TextBlock>
+	<Border Padding="10 15">
+
+		<StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+			<Border Grid.Column="1" Padding=" 50 20 50 10  " Background="{StaticResource Base-200}" CornerRadius="20">
+				<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+					<Grid ColumnDefinitions="*,100">
+						<TextBlock Grid.Column="0" FontSize="30" FontWeight="SemiBold" Foreground="#4BB3EB"> Images </TextBlock>
+						<Button Grid.Column="1" Classes="DeletarChk">
+							<StackPanel Spacing="4" Orientation="Horizontal">
+								<Image Height="20" Source="{SvgImage /Assets/Icons/Trash.svg}"></Image>
+								<Label>Deletar</Label>
+							</StackPanel>
+						</Button>
+					</Grid>
+					<DataGrid
+						Margin="0 20 0 0"
+						CanUserResizeColumns="False"
+						CanUserSortColumns="True"
+						HorizontalScrollBarVisibility="Disabled"
+						IsReadOnly="True"
+						GridLinesVisibility="None"
+						HorizontalAlignment="Stretch"
+						ItemsSource="{Binding images}">
+						<DataGrid.Columns>
+							<DataGridCheckBoxColumn />
+							<DataGridTemplateColumn>
+								<DataGridTemplateColumn.Header>
+									<TextBlock>Image</TextBlock>
+								</DataGridTemplateColumn.Header>
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<StackPanel Spacing="3" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+											<TextBlock Text="{Binding name}" FontWeight="SemiBold" FontSize="15" />
+											<StackPanel Orientation="Horizontal" Spacing="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+												<Button Grid.Column="0" Background="Transparent"
+												        Command="{Binding copy}"
+												        CommandParameter="{Binding id}">
+													<Image Height="10" Source="{SvgImage /Assets/Icons/copy.svg}"></Image>
+												</Button>
+												<TextBlock MaxWidth="250" Margin="5,0,0,0" Grid.Column="1" Foreground="#a2a2a2" Text="{Binding id}"> </TextBlock>
+											</StackPanel>
 										</StackPanel>
-									</StackPanel>
-								</DataTemplate>
-							</DataGridTemplateColumn.CellTemplate>
-						</DataGridTemplateColumn>
-						<!--<DataGridTextColumn Header="Name" Width="*" Binding="{Binding name}" /> -->
-						<DataGridTextColumn Header="Tag" MinWidth="200" Width="*" Binding="{Binding repo_tag}" />
-						<DataGridTextColumn Header="Qt. Containers" MaxWidth="120" Binding="{Binding containers}" />
-						<DataGridTextColumn Header="Created at" MaxWidth="150" Binding="{Binding created_at }" />
-						<DataGridTemplateColumn>
-							<DataGridTemplateColumn.CellTemplate>
-								<DataTemplate>
-									<Border Padding="10">
-										<Button Command="{Binding delete  }" CommandParameter="{Binding id}" Background="Transparent">
-											<Image Source="{SvgImage /Assets/Icons/Trash.svg}"></Image>
-										</Button>
-									</Border>
-								</DataTemplate>
-							</DataGridTemplateColumn.CellTemplate>
-						</DataGridTemplateColumn>
-					</DataGrid.Columns>
-				</DataGrid>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+							<!--<DataGridTextColumn Header="Name" Width="*" Binding="{Binding name}" /> -->
+							<DataGridTextColumn Header="Tag" MinWidth="200" Width="*" Binding="{Binding repo_tag}" />
+							<DataGridTextColumn Header="Qt. Containers" MaxWidth="120" Binding="{Binding containers}" />
+							<DataGridTextColumn Header="Created at" MaxWidth="150" Binding="{Binding created_at }" />
+							<DataGridTemplateColumn>
+								<DataGridTemplateColumn.CellTemplate>
+									<DataTemplate>
+										<Border Padding="10">
+											<Button Command="{Binding delete  }" CommandParameter="{Binding id}" Background="Transparent">
+												<Image Source="{SvgImage /Assets/Icons/Trash.svg}"></Image>
+											</Button>
+										</Border>
+									</DataTemplate>
+								</DataGridTemplateColumn.CellTemplate>
+							</DataGridTemplateColumn>
+						</DataGrid.Columns>
+					</DataGrid>
+				</StackPanel>
+
 			</Border>
 		</StackPanel>
 	</Border>

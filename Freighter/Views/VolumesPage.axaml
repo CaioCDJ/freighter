@@ -7,21 +7,34 @@
              x:DataType="vm:VolumesPageViewModel"
              x:Class="Freighter.Views.VolumesPage">
 
-	<Border Grid.Column="1" Padding=" 50 20 50 10  ">
-		<StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-			<TextBlock FontSize="30" FontWeight="SemiBold" Foreground="#4BB3EB">Volumes</TextBlock>
-			<Border Padding="0 20 0 0">
-				<DataGrid
-					CanUserResizeColumns="False"
-					IsReadOnly="True"
-					HorizontalAlignment="Stretch"
-					GridLinesVisibility="None"
-					ItemsSource="{Binding volumes}">
-					<DataGrid.Columns>
-						<DataGridTextColumn Header="Name"  Width="*" Binding="{Binding name}" />
-						<DataGridTextColumn Header="created at" MaxWidth="" Binding="{Binding created_at}" />
-					</DataGrid.Columns>
-				</DataGrid>
+	<Border Padding="10 15">
+		<StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			<Border Grid.Column="1" Padding=" 50 20 50 10  " Background="{StaticResource Base-200}" CornerRadius="20">
+				<StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+					<Grid ColumnDefinitions="*,100">
+						<TextBlock Grid.Column="0" FontSize="30" FontWeight="SemiBold" Foreground="#4BB3EB"> Volumes </TextBlock>
+						<Button Grid.Column="1" Classes="DeletarChk">
+							<StackPanel Spacing="4" Orientation="Horizontal">
+								<Image Height="20" Source="{SvgImage /Assets/Icons/Trash.svg}"></Image>
+								<Label>Deletar</Label>
+							</StackPanel>
+						</Button>
+					</Grid>
+					<Border Padding="0 20 0 0">
+						<DataGrid
+							Margin="0 20 0 0"
+							CanUserResizeColumns="False"
+							IsReadOnly="True"
+							HorizontalAlignment="Stretch"
+							GridLinesVisibility="None"
+							ItemsSource="{Binding volumes}">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="Name" Width="*" Binding="{Binding name}" />
+								<DataGridTextColumn Header="created at" MaxWidth="" Binding="{Binding created_at}" />
+							</DataGrid.Columns>
+						</DataGrid>
+					</Border>
+				</StackPanel>
 			</Border>
 		</StackPanel>
 	</Border>

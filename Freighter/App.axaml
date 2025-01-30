@@ -3,23 +3,27 @@
              x:Class="Freighter.App"
              xmlns:local="using:Freighter"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+	<!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
-    <Application.DataTemplates>
-        <local:ViewLocator/>
-    </Application.DataTemplates>
-  
-    <Application.Styles>    
-        <FluentTheme />
-        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"/>
-        <StyleInclude Source="Styles/DefaultStyles.axaml"></StyleInclude>
-    </Application.Styles>
-    
-    <Application.Resources>
-        <SolidColorBrush x:Key="SecondaryBackgorund" Color="#101822"></SolidColorBrush>
-        <SolidColorBrush x:Key="PrimeryColor" Color="#4BB3EB"></SolidColorBrush>
-        <SolidColorBrush x:Key="SuccessColor" Color="#00A86D"></SolidColorBrush>
-        <SolidColorBrush x:Key="ErrorColor" Color="#FF5760"></SolidColorBrush>
-        <SolidColorBrush x:Key="PrimaryBackground" Color="#0B0F1D">  </SolidColorBrush>
-    </Application.Resources>
+	<Application.DataTemplates>
+		<local:ViewLocator />
+	</Application.DataTemplates>
+
+
+	<Application.Resources>
+		<SolidColorBrush x:Key="Base-100" Color="#0F1727" />
+		<SolidColorBrush x:Key="Base-200" Color="#020611" />
+		<SolidColorBrush x:Key="Text" Color="#d2d2d2" />
+		<SolidColorBrush x:Key="Text-secondary" Color="#77758A"/>
+		<SolidColorBrush x:Key="PrimaryColor" Color="#0DA4E9" />
+		<SolidColorBrush x:Key="SuccessColor" Color="#21C45D" />
+		<SolidColorBrush x:Key="ErrorColor" Color="#EF4444" />
+	</Application.Resources>
+
+	<Application.Styles>
+		<FluentTheme />
+		<StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />
+		<StyleInclude Source="Styles/DefaultStyles.axaml" />
+		<StyleInclude Source="Styles/tableStyles.axaml" />
+	</Application.Styles>
 </Application>

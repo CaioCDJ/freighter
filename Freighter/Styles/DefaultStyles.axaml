@@ -7,8 +7,8 @@
 	</Design.PreviewWith>
 	<Style Selector="Button.NavButton">
 		<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
-		<Setter Property="Foreground">White</Setter>
-		<Setter Property="Background">#101822</Setter>
+		<Setter Property="Foreground">#d2d2d2</Setter>
+		<Setter Property="Background" Value="Transparent"/>
 	</Style>
 	<Style Selector="Button.Container">
 		<Setter Property="Foreground" Value="DodgerBlue"></Setter>
@@ -19,7 +19,7 @@
 	</Style>
 	<Style Selector="Button.Link">
 		<Setter Property="Background" Value="Transparent"></Setter>
-		<Setter Property="Foreground" Value="SkyBlue"></Setter>
+		<Setter Property="Foreground" Value="#A754F7"></Setter>
 	</Style>
 	<Style Selector="Button.DeletarBtn">
 		<Setter Property="Foreground" Value="red"></Setter>
@@ -28,48 +28,11 @@
 		<Setter Property="HorizontalAlignment" Value="Center"></Setter>
 		<Setter Property="VerticalAlignment" Value="Center"></Setter>
 	</Style>
-	<Style Selector="DataGrid">
-		<Setter Property="Background" Value="Transparent"></Setter>
+	
+	<Style Selector="Button.DeletarChk">
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Background" Value="{StaticResource ErrorColor}"/>
 	</Style>
-	<Style Selector="DataGridRow:selected">
-		<Setter Property="Background" Value="#222"></Setter>
-	</Style>
-	<!-- Stolen from sukiUI  -->
-	<Style Selector="DataGridColumnHeader">
-		<Setter Property="HorizontalContentAlignment" Value="Left" />
-		<Setter Property="VerticalContentAlignment" Value="Center" />
-		<Setter Property="Padding" Value="12" />
-		<Setter Property="Template">
-			<ControlTemplate>
-				<Border Name="PART_Border"
-				        Background="Transparent"
-				        BorderThickness="0,0,0,0"
-				        CornerRadius="0">
-					<Grid ColumnDefinitions="*,Auto">
-						<Grid Margin="{TemplateBinding Padding}"
-						      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-						      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-						      ColumnDefinitions="*,Auto">
-							<ContentPresenter Background="Transparent"
-							                  Content="{TemplateBinding Content}"
-							                  ContentTemplate="{TemplateBinding ContentTemplate}" />
-							<Path Name="SortIcon"
-							      Grid.Column="1"
-							      Width="10"
-							      Margin="8,0,8,0"
-							      HorizontalAlignment="Left"
-							      VerticalAlignment="Center"
-							      Data="F1 M -5.215,6.099L 5.215,6.099L 0,0L -5.215,6.099 Z "
-							      IsVisible="True"
-							      Opacity="0"
-							      Stretch="Uniform" />
-						</Grid>
-					</Grid>
-				</Border>
-			</ControlTemplate>
-		</Setter>
-		<Style Selector="^ TextBlock">
-			<Setter Property="TextTrimming" Value="CharacterEllipsis" />
-		</Style>
-	</Style>
+	
+	
 </Styles>

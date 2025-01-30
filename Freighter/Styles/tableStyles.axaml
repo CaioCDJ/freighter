@@ -1,0 +1,26 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Design.PreviewWith>
+		<Border Padding="20">
+			<!-- Add Controls for Previewer Here -->
+		</Border>
+	</Design.PreviewWith>
+	<Style Selector="DataGrid">
+		<Setter Property="CanUserResizeColumns" Value="False" />
+		<Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+		<Setter Property="IsReadOnly" Value="True"/>
+		<Setter Property="GridLinesVisibility" Value="None" />
+		<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		<Setter Property="HeadersVisibility" Value="None" />
+		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="HorizontalGridLinesBrush" Value="Transparent"/>
+		<Setter Property="VerticalGridLinesBrush" Value="Transparent"/>
+		<Setter Property="Background" Value="Transparent"></Setter>
+		<Setter Property="BorderBrush" Value="{StaticResource Base-200}"/>
+	</Style>
+	<Style Selector="DataGridRow:selected">
+		<Setter Property="Background" Value="#222"></Setter>
+	</Style>
+	
+	<!-- Add Styles Here -->
+</Styles>
